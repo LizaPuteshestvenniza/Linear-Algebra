@@ -66,6 +66,7 @@ for i in range(0, len(X)):
     for j in range(0, len(X[0])):
         x += str(X[i][j])
         x += ' '
+        
 if X != 0:
     file_out.write('1' + '\n')
     file_out.write(str(len(X)) + ' ' + str(len(X[0])) + '\n')
