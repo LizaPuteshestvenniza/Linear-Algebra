@@ -1,0 +1,77 @@
+\section{Задние 1}
+\subsection{Формулировка задания}
+\begin{frame}{Наибольшее и наименьшее значение функции\\
+нескольких переменных в области} %это заголовок слайда
+
+\begin{block}{Формулировка задания}
+Через точку $D$ $(a,b,c)$ проведите плоскость так, чтобы объём тетраэдра, отсекаемого ею от
+координатного трёхгранника, был бы наименьшим. Изобразите на графике для конкретной 
+точки $А$.
+\end{block}
+
+\begin{block}{План:}
+\begin{itemize}
+    \item Изобразим на рисунке условие задачи
+    \item Решим задачу аналитически
+    \item Проиллюстрируем ответ
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Выполнение задания}
+\begin{frame}{Выведение формулы объема}
+\begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.35]{images/tetrader.png}
+        \caption{Отсеченная пирамида}
+        \label{fig:pyramid}
+    \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+        Уравнение искомой плоскости: $\frac{x}{A}+\frac{y}{B}+\frac{z}{C}=1$, где $A, B$ и $C$ являются отрезками, отсекаемыми плоскостью на координатных осях. Поскольку точка $D$ $(a,b,c)$ принадлежит плоскости, то тогда: $$\frac{a}{A}+\frac{b}{B}+\frac{c}{C}=1 \Rightarrow C=\frac{c}{1-\frac{a}{A}-\frac{b}{B}}$$
+        Объем тетраэдра: $$V=\frac{1}{6} A B C=\frac{1}{6} A B \frac{c}{1-\frac{a}{A}-\frac{b}{B}}$$
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Выведени уравнения плоскости}
+$$
+\frac{\partial V}{\partial A}=\frac{B c}{6} \frac{1-\frac{2 a}{A}-\frac{b}{B}}{\left(1-\frac{a}{A}-\frac{b}{B}\right)^{2}}; \quad\frac{\partial V}{\partial B}=\frac{A c}{6} \frac{1-\frac{a}{A}-\frac{2 b}{B}}{\left(1-\frac{a}{A}-\frac{b}{B}\right)^{2}}
+$$
+\Large
+$$
+\left\{\begin{array} { l } 
+{ \frac { \partial V } { \partial A } = 0 , } \\
+{ \frac { \partial V } { \partial B } = 0 }
+\end{array} \Rightarrow \left\{\begin{array} { c } 
+{ 1 - \frac { 2 a } { A } - \frac { b } { B } = 0 , } \\
+{ 1 - \frac { a } { A } - \frac { 2 b } { B } = 0 }
+\end{array} \Rightarrow \left\{\begin{array}{c}
+A=3 a \\
+B=3 b \\
+C=3 c
+\end{array}\right.\right.\right.
+$$
+Таким образом, получаем уравнение плоскости:
+$$\frac{x}{a}+\frac{y}{b}+\frac{z}{c}=3 .$$
+\end{frame}
+
+\begin{frame}{Пример для точки E(3,2,1)}
+\begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.4]{images/piramidD.png}
+        \caption{Отсеченная пирамида}
+        \label{fig:pyramid_E_point}
+    \end{figure}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+       Получаем уравнение плоскости:
+       $$\frac{x}{3}+\frac{y}{2}+\frac{z}{1}=3$$
+    \end{column}
+\end{columns}
+\end{frame}
+
