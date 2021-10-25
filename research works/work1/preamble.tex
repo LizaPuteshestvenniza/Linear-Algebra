@@ -1,0 +1,32 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{
+amsmath, % базовый пакет для отображения математический формул
+amssymb, % дополнительные математический символы
+polynom % позволяет удобно работать с многочленами
+}
+\usepackage{cases}
+
+% Без этой команды он иногда ругается.
+\hypersetup{unicode=true}
+
+% Чтобы адекватно работало копирование текста из полученной .pdf-ки.
+% \usepackage{cmap}
+
+% Это нужно, чтобы он называл рисунки без сокращения "рис.". Таблицы он называет без сокращения по умолчанию.
+\addto\captionsrussian{\renewcommand{\figurename}{Рисунок}}
+
+% Пакет для использования запятой в качестве десятичного разделителя. Следите, чтобы в формулах запятые стояли с пробелами, там где они запятые. Например $v = (x, y, z)$
+% \usepackage{icomma}
+
+% Это единственный пакет для библиографии, который у меня заработал с \footcite шаблоном.
+% В презентациях лучше делать её руками через \footnote!
+% \usepackage[style=mla]{biblatex}
+% \addbibresource{references.bib}
+
+\usepackage{ITMOtheme}
+
+% Рисунок для титульного слайда.
+\titlegraphic{\includegraphics[scale=.8]{itmo/logo_rus_vert_blue.pdf}}
