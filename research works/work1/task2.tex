@@ -1,0 +1,226 @@
+\section{Задание 2 }
+\plan
+\begin{frame}{Условия задачи}
+ \[
+Q\left(x,y,z\right)=x^{2}+y^{2}+4z^{2}+2xy+4xz+4yz-6z+1=0
+  \]
+    \begin{block}{План}
+        \begin{itemize}
+            \item Привести уравнение к канонической форме методом ортогональных преобразований
+            \item Нарисовать исходную поверхность и три ортонормированных вектора, которые образуют ее канонический базис
+            \item Добавить линии span для удобства
+        \end{itemize}
+    \end{block}
+\end{frame}
+\subsection{}
+\begin{frame}{Определение}
+    Квадратичную форму с действительными коэффициентами
+    \[
+        Q\left(x_{1}, x_{2}, \ldots, x_{n}\right)=\sum_{i=1}^{n} \sum_{j=1}^{n} a_{i j} x_{i} x_{j}
+    \]
+    можно привести к каноническому виду:
+    \[
+    Q\left(x_{1}^{*}, x_{2}^{*}, \ldots, x_{n}^{*}\right)=\lambda_{1} x_{1}^{* 2}+\lambda_{2} x_{2}^{* 2}+\ldots+\lambda_{n} x_{n}^{* 2}
+    \]
+\end{frame}
+\begin{frame}{Матрица A и T}
+    \[
+        Q(x, y, z)=x^{2}+y^{2}+4 z^{2}+2 x y+4 x z+4 y z-6 z+1
+    \] 
+    \[
+        A=\left(\begin{array}{lll}
+        1 & 1 & 2 \\
+        1 & 1 & 2 \\
+        2 & 2 & 4
+        \end{array}\right)
+    \]
+    \[
+        T\left(\begin{array}{l}
+        x \\
+        y \\
+        z
+        \end{array}\right)=\left(\begin{array}{l}
+        x^{*} \\
+        y^{*} \\
+        z^{*}
+        \end{array}\right)
+        \]
+    $T$ - ортогональная матрица перехода. \\
+    $A$ - матрица квадратичной формы. 
+\end{frame}
+\begin{frame}{Нахождение собственных чисел}
+    $\lambda_{1}, \lambda_{2}, \lambda_{3}$ - собственные числа матрицы. Столбцы матрицы $T$ являются координатами ортонормированного базиса $\left(\mathbf{e}_{1}^{*}, \mathbf{e}_{2}^{*}, \mathbf{e}_{3}^{*}\right)$, в котором матрица имеет диагональный вид.
+    \[
+        |A-\lambda E|=\left|\begin{array}{ccc}
+        1-\lambda & 1 & 2 \\
+        1 & 1-\lambda & 2 \\
+        2 & 2 & 4-\lambda
+        \end{array}\right|=-\lambda^{3}+6 \lambda^{2}=-(\lambda-6) \lambda^{2}=0
+    \]
+    \[
+        \lambda_{1,2}=0, \quad \lambda_{3}=6
+    \]
+\end{frame}
+\begin{frame}{Вычисление собственных векторов}
+    $$
+    \begin{aligned}
+    & A \mathbf{x}=\lambda_{1,2} \mathbf{x} \\
+    &\left(\begin{array}{lll}
+    1 & 1 & 2 \\
+    1 & 1 & 2 \\
+    2 & 2 & 4
+    \end{array}\right)\left(\begin{array}{l}
+    x_{1} \\
+    x_{2} \\
+    x_{3}
+    \end{array}\right)=0 \cdot\left(\begin{array}{l}
+    x_{1} \\
+    x_{2} \\
+    x_{3}
+    \end{array}\right) \rightarrow\left(\begin{array}{lll}
+    1 & 1 & 2 \\
+    1 & 1 & 2 \\
+    2 & 2 & 4
+    \end{array}\right)\left(\begin{array}{l}
+    x_{1} \\
+    x_{2} \\
+    x_{3}
+    \end{array}\right)=\left(\begin{array}{l}
+    0 \\
+    0 \\
+    0
+    \end{array}\right) \rightarrow \\
+    &\left\{\begin{array}{l}
+    x_{1}+x_{2}+2 x_{3}=0 \\
+    x_{1}+x_{2}+2 x_{3}=0 \\
+    2 x_{1}+2 x_{2}+4 x_{3}=0
+    \end{array}\right. \\
+    &x_{com}=\left(\begin{array}{c}-x_{2}-2 x_{3} \\ x_{2} \\ x_{3}\end{array}\right)=x_{2}\left(\begin{array}{r}-1 \\ 1 \\ 0\end{array}\right)+x_{3}\left(\begin{array}{r}-2 \\ 0 \\ 1\end{array}\right)
+    \end{aligned}
+    $$
+\end{frame}
+\begin{frame}{Вычисление собственных векторов}
+\[
+    \begin{aligned}
+    &\bar{f}_{1}=\left(\begin{array}{r}-1 \\ 1 \\ 0\end{array}\right) \text { - первый вектор фундаментальной системы; } \\
+    &\bar{f}_{2}=\left(\begin{array}{r}-2 \\ 0 \\ 1\end{array}\right) \text { - второй вектор фундаментальной системы; } \\
+    &\bar{u}_{1}=\bar{f}_{1}+\mu \cdot \bar{f}_{2} \rightarrow \mu=-\frac{\overline{f_{1}} \cdot \overline{f_{2}}}{\bar{f}_{2} \cdot \overline{f_{2}}}=-\frac{2}{5} \rightarrow \bar{u}_{1}=
+    \left(\begin{array}{r}-0.2 \\ 1 \\ -0.4\end{array}\right) \\
+    &\bar{u}_{2}=\bar{f}_{2}=\left(\begin{array}{r}-2 \\ 0 \\ 1\end{array}\right)
+    \end{aligned}
+\]
+\end{frame}
+\begin{frame}{Вычисление собственных векторов}
+\[
+    \begin{aligned}
+        & A \mathbf{x}=\lambda_{3} \mathbf{x}\\
+        &\left(\begin{array}{lll}
+        1 & 1 & 2 \\
+        1 & 1 & 2 \\
+        2 & 2 & 4
+        \end{array}\right)\left(\begin{array}{l}
+        x_{1} \\
+        x_{2} \\
+        x_{3}
+        \end{array}\right)=6\left(\begin{array}{l}
+        x_{1} \\
+        x_{2} \\
+        x_{3}
+        \end{array}\right) \\
+        &\left(\left(\begin{array}{lll}
+        1 & 1 & 2 \\
+        1 & 1 & 2 \\
+        2 & 2 & 4
+        \end{array}\right)-6\left(\begin{array}{lll}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+        \end{array}\right)\right)\left(\begin{array}{l}
+        x_{1} \\
+        x_{2} \\
+        x_{3}
+        \end{array}\right)=
+        \left(\begin{array}{l}
+        0 \\
+        0 \\
+        0
+        \end{array}\right) \\
+        &\left(\begin{array}{rrr}
+        -5 & 1 & 2 \\
+        1 & -5 & 2 \\
+        2 & 2 & -2
+        \end{array}\right)\left(\begin{array}{l}
+        x_{1} \\
+        x_{2} \\
+        x_{3}
+        \end{array}\right)=\left(\begin{array}{l}
+        0 \\
+        0 \\
+        0
+        \end{array}\right) \rightarrow 
+        \left\{\begin{array}{l}
+        -5 x_{1}+x_{2}+2 x_{3}=0 \\
+        x_{1}-5 x_{2}+2 x_{3}=0 \\
+        2 x_{1}+2 x_{2}-2 x_{3}=0
+        \end{array}\right.\\
+        &{x}_{com}=\left(\begin{array}{r}0.5 \\ 0.5 \\ 1\end{array}\right) \rightarrow \bar{u}_{3}=\left(\begin{array}{r}0.5 \\ 0.5 \\ 1\end{array}\right)
+    \end{aligned}
+\]
+\end{frame}
+\begin{frame}{Проверка и нормализация векторов}
+    Сделаем проверку ортогональности векторов:
+    \begin{align*}
+        &\bar{u}_{1} \cdot \bar{u}_{2} = 0.2 \cdot 2 - 0.4 = 0 \\
+        &\bar{u}_{1} \cdot \bar{u}_{3} = (-0.2) \cdot 0.5 + 0.5 - 0.4 = 0 \\
+        &\bar{u}_{2} \cdot \bar{u}_{3} = -2 \cdot 0.5 + 1 = 0
+    \end{align*}
+    Вектора ортогональны, теперь их нужно нормализовать:
+    \begin{align*}
+        &e_{1}^{*}=\frac{\bar{u}_{1}}{|{\bar{u}_{1}}|}=\left(-\frac{1}{\sqrt{30}}, \frac{5}{\sqrt{30}}, -\frac{2}{\sqrt{30}}\right) \\
+        &e_{2}^{*}=\frac{\bar{u}_{2}}{|{\bar{u}_{2}}|}=\left(-\frac{2}{\sqrt{5}}, 0, \frac{1}{\sqrt{5}}\right) \\
+        &e_{3}^{*}=\frac{\bar{u}_{3}}{|{\bar{u}_{3}}|}=\left(\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{2}{\sqrt{6}}\right)
+    \end{align*}
+\end{frame}
+\begin{frame}{Вывод канонического уравнения}
+    Следовательно матрица
+   $$
+    \left(\begin{array}{ccc}
+    -\frac{1}{\sqrt{30}} & -\frac{2}{\sqrt{5}} & \frac{1}{\sqrt{6}} \\
+    \frac{5}{\sqrt{30}} & 0 & \frac{1}{\sqrt{6}} \\
+    -\frac{2}{\sqrt{30}} & \frac{1}{\sqrt{5}} & \frac{2}{\sqrt{6}}
+    \end{array}\right)
+    $$
+    Получаем преобразование координат:
+    $$
+    \left\{\begin{array}{l}
+    x=-\frac{1}{\sqrt{30}} x^{*} - \frac{2}{\sqrt{5}} y^{*}+\frac{1}{\sqrt{6}} z^{*} \\
+    y=\frac{5}{\sqrt{30}} x^{*} + \frac{1}{\sqrt{6}} z^{*} \\
+    z=-\frac{2}{\sqrt{30}} x^{*} + \frac{1}{\sqrt{5}} y^{*} + \frac{2}{\sqrt{6}} z^{*}
+    \end{array}\right.
+    $$
+    в базисе $\left(e_{1}^{*},e_{2}^{*},e_{3}^{*}\right)$ исходная квадратичная форма принимает канонический вид:
+    $$
+    6 z^{* 2} + \frac{12}{\sqrt{30}}x^{*} - \frac{6}{\sqrt{5}}y^{*} -\frac{12}{\sqrt{6}}z^{*} + 1 = 0
+    $$
+\end{frame}
+\begin{frame}{Результат}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.3]{fig/task-2-2/img1.png}
+        \caption{Исходный параболический цилиндр с линиями векторов канонического базиса}
+    \end{figure}
+\end{frame}
+\begin{frame}{Результат}
+
+    \begin{figure}
+        \begin{minipage}{.49\textwidth}
+            \centering
+            \includegraphics[scale=0.2]{fig/task-2-2/kon.jpg}
+        \end{minipage}
+        \begin{minipage}{.49\textwidth}
+            \centering
+            \includegraphics[scale=0.2]{fig/task-2-2/kon2.jpg}
+        \end{minipage}
+        \caption{Каноническое изображение}
+    \end{figure}
+\end{frame}
