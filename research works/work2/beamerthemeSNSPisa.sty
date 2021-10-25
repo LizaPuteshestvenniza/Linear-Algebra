@@ -1,0 +1,151 @@
+% beamerthemeUCBerkeley.sty v1.2 (January 5, 2021)
+% by Overleaf (LianTze Lim, Ryan Looney)
+%SNS adaptation by Nicolò Montali (NiM)e Marco Lastres (Las3) (5 April 2021)
+\ProvidesPackage{beamerthemeSNSPisa} %basato su UC Berkeley.sty
+%------------------------------------------------------------------
+\RequirePackage{mathtools}
+\RequirePackage{physics}
+\RequirePackage{tcolorbox}
+\RequirePackage{amsthm}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{faktor}
+\RequirePackage{tikz-cd}
+%\RequirePackage{enumitem} %confligge con \itemize, che è integrato in beamer
+%------------------------------------------------------------------
+\RequirePackage{silence}
+\WarningsOff[mathdesign/mdbch]
+%------------------------------------------------------------------
+\RequirePackage{graphicx, wrapfig} %gestione immagini e grafiche
+\graphicspath{  {./images/}  } %cartella delle immagini
+%------------------------------------------------------------------
+\RequirePackage[backend=biber,bibstyle=authortitle, giveninits=true,citestyle=verbose-trad1]{biblatex} %gestione citazioni
+\addbibresource{bibliography.bib} %file della bibliografia
+\renewcommand*{\newunitpunct}{\addcomma\space} %separa i campi con virgole e non con punti, come di default
+\renewcommand*{\revsdnamepunct}{} %rimuove la virgola tra nome e cognome dell'autore
+\renewcommand\mkbibnamefamily[1]{\textsc{#1}} %autori in maiuscoletto
+%------------------------------------------------------------------
+\RequirePackage{ragged2e}
+\RequirePackage{etoolbox}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+%testo giustificato
+\apptocmd{\frame}{}{\justifying}{}
+\apptocmd{\column}{}{\justifying}{}
+\makeatletter
+\renewcommand{\itemize}[1][]{%
+    \beamer@ifempty{#1}{}{\def\beamer@defaultospec{#1}}%
+    \ifnum \@itemdepth >2\relax\@toodeep\else
+    \advance\@itemdepth\@ne
+    \beamer@computepref\@itemdepth% sets \beameritemnestingprefix
+    \usebeamerfont{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamercolor[fg]{itemize/enumerate \beameritemnestingprefix body}%
+    \usebeamertemplate{itemize/enumerate \beameritemnestingprefix body begin}%
+    \list
+    {\usebeamertemplate{itemize \beameritemnestingprefix item}}
+    {\def\makelabel##1{%
+            {%
+                \hss\llap{{%
+                        \usebeamerfont*{itemize \beameritemnestingprefix item}%
+                        \usebeamercolor[fg]{itemize \beameritemnestingprefix item}##1}}%
+            }%
+        }%
+    }
+}
+%------------------------------------------------------------------
+\RequirePackage{epigraph} %eserga o epigrafi
+\setlength\epigraphwidth{0.8\textwidth}
+\setlength\epigraphrule{0pt}
+\renewcommand{\textflush}{flushepinormal}
+%------------------------------------------------------------------
+\RequirePackage[italian]{babel}
+\RequirePackage[autostyle,italian=guillemets]{csquotes} %rende più semplice la gestione di bibtex e permette inoltre di citare cose estese
+%------------------------------------------------------------------
+% \RequirePackage[T1]{fontenc}
+% \RequirePackage[charter,expert]{mathdesign}
+% \RequirePackage[scaled=.96,oldstyle]{XCharter}
+% \RequirePackage[default,scale=0.96,osfigures]{opensans}
+\RequirePackage{fontspec}
+\setromanfont{LinLibertine_R.otf} %font package
+\setsansfont[Scale=MatchLowercase]{Open Sans}
+%------------------------------------------------------------------
+\RequirePackage{tikz} %grafiche alla base della pagina
+
+%Кастомные цветы в цветах ИТМО
+\definecolor{ITMOblue}{RGB}{25,70,186} 
+\definecolor{ITMOred}{RGB}{236,11,67} 
+\definecolor{ITMOwhite}{RGB}{255,255,255}
+
+%настройка титульного листа
+\setbeamertemplate{title page}[default][left]
+\setbeamerfont{title}{family=\rmfamily,size=\Huge}
+\setbeamerfont{author}{family=\rmfamily,shape=\scshape,size=\huge}
+\setbeamerfont{institute}{family=\rmfamily,shape=\scshape,size=\normalsize}
+\setbeamerfont{date}{size=\normalsize}
+
+%настройка содержания
+\setbeamercolor{section in toc}{fg=ITMOblue}
+\setbeamercolor{subsection in toc}{fg=ITMOblue}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=3.2em\rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}\inserttocsubsection\par}
+
+\setbeamersize{text margin left=2em, text margin right=2em}
+
+\setbeamertemplate{frametitle}{\vskip0.06\paperheight\insertframetitle} 
+\setbeamerfont{frametitle}{family=\rmfamily,series=\mdseries,size=\Large}
+\setbeamerfont{block title}{family=\rmfamily,size=\large}
+\setbeamercolor{titlelike}{fg=ITMOred}
+\setbeamercolor{author}{fg=ITMOblue}
+\setbeamercolor{institute}{fg=ITMOblue}
+\setbeamercolor{date}{fg=ITMOblue}
+\setbeamercolor{normal text}{fg=ITMOblue}
+\setbeamercolor{structure}{fg=ITMOblue}
+\setbeamercolor{block title}{fg=ITMOred}
+
+\setbeamertemplate{itemize item}{\textbullet}
+\setbeamertemplate{itemize subitem}{--}
+\setbeamertemplate{itemize subsubitem}{\textbullet}
+\setlength{\leftmargini}{1.25em}
+\setlength{\leftmarginii}{1em}
+\setlength{\leftmarginiii}{1em}
+
+%impostare sempre un'immagine dal titolo di una sola parola
+% \pgfdeclareimage[width=1.01\paperwidth]{blueslope}{blueslope}
+\pgfdeclareimage[height=0.15\paperheight]{logo}{images/slogans02.png}
+
+\setbeamertemplate{background}{%
+\begin{tikzpicture}[overlay,remember picture]
+  \fill[ITMOblue] (current page.south west) -- +(0, 0.05\paperheight) -- +(\paperwidth, 0.17\paperheight) -- (current page.south east) -- cycle;  
+% \node[anchor=south west,inner sep=0pt,draw=none,yshift=-6pt,xshift=-1pt] at (current page.south west) {\pgfuseimage{blueslope}};%
+\node[anchor=south east,inner sep=0pt,draw=none,xshift=0.08\paperheight,yshift=0.01\paperheight] at (current page.south east) {\pgfuseimage{logo}};%
+\end{tikzpicture}%
+}
+
+\setbeamertemplate{navigation symbols}{}
+%\setbeamertemplate{line}{%
+%\vskip0.125\paperheight
+%} %decommenta queste tre righe per ottenere più spazio tra il margine inferiore e il testo
+\addtobeamertemplate{line}{
+    \leavevmode%
+    \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.75ex,dp=.5ex,left,leftskip=1.1em]{mycolor}%
+\usebeamercolor[fg]{navigation symbols}
+\insertslidenavigationsymbol%
+\insertframenavigationsymbol%
+\insertsubsectionnavigationsymbol%
+\insertsectionnavigationsymbol%
+\insertdocnavigationsymbol%
+\insertbackfindforwardnavigationsymbol%
+    \end{beamercolorbox}%
+    }%
+    \vskip0.5pt%
+}{}
+
+\newcommand{\smallframetitle}{%
+  \setbeamertemplate{frametitle}{\vskip0.15\paperheight\insertframetitle}
+  \setbeamerfont{frametitle}{size=\large,series=\bfseries}
+}
+\newcommand{\normalframetitle}{%
+  \setbeamertemplate{frametitle}{\vskip0.15\paperheight\insertframetitle} 
+  \setbeamerfont{frametitle}{size=\LARGE,series=\mdseries}
+}
