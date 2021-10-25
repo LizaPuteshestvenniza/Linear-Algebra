@@ -1,0 +1,99 @@
+\section{Задние 3}
+\subsection{Формулировка задания}
+\begin{frame}{Поток векторного поля} %это заголовок слайда
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+\centering
+\textbf{Формулировка задания:} \\
+Дано тело $T$, ограниченное следующими поверхностями: \\
+$$y + \sqrt{1 - x^{2} - z^{2}} = 0, \hspace{1mm} y + 2\sqrt{x^{2} + z^{2}} = 2$$ 
+На рисунке представлено сечение тела Т координатной плоскостью $Oyz$. \\
+\vspace{2mm}
+\includegraphics[width=0.2\paperwidth]{images/Zadanie4.png}
+\end{column}
+\begin{column}{0.4\paperwidth}
+\textbf{План:}
+\begin{itemize}
+    \item Изобразить тело Т на графике в пространстве
+    \item Вычислить пототк поля $\Vec{a} = (\cos{zy})\Vec{i} + x\Vec{j} + (e^{y^{2}} - 5z)\Vec{k}$ через боковую поверхность тела $T$, образованную вращением дуги $ABC$ вокруг оси $Oy$, в направлении внешней нормали поверхности тела $T$. 
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Изображение тела $T$}
+\begin{frame}{Изображение тела $T$}
+\begin{block}
+\centering
+Тело $T$, ограниченное следующими поверхностями: \\
+$$y + \sqrt{1 - x^{2} - z^{2}} = 0, \hspace{1mm} y + 2\sqrt{x^{2} + z^{2}} = 2$$ 
+\centering
+\includegraphics[scale=0.3]{images/Zadanie4Grafik.png}
+\end{block} 
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Вычисление потока поля}
+\begin{frame}{Вычисление потока поля}
+\begin{block}{Расчет:}
+\centering
+$$\Vec{a} = (\cos{zy})\Vec{i} + x\Vec{j} + (e^{y^{2}} - 5z)\Vec{k}$$
+через полусферу:
+$x^{2} + y^{2} + z^{2} = 1 $ при $y \leq 0$ \\
+Поверхность проецируем на плоскость $Oxz$ \\
+Добавим к полусфере круг:
+\[
+\begin{cases}
+    1 = x^{2} + z^{2} \\
+    0 = y
+\end{cases}
+\]
+Найдем поток через замкнутую поверхность по теореме Остроградского-Гаусса:
+$$
+div = \frac{\delta P}{\delta x} + \frac{\delta Q}{\delta y} + \frac{\delta R}{\delta z} = 0 + 0 - 5 = -5
+$$
+\end{block}  
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Вычисление потока поля}
+\begin{frame}{Вычисление потока поля}
+\begin{block}{Расчет:}
+\centering
+$$
+\dot{\Pi} = \iiint_{v} div \Vec{a} dv = -5\iiint_{v} dv = 
+$$
+$$
+= -5 \cdot \frac{1}{2} \cdot \frac{4\pi}{3} = \frac{-10\pi}{3}
+$$
+Найдем поток через круг $y = 0$, поэтому $n\textdegree = (0; 1; 0)$ \\
+$(a \cdot n\textdegree) = x$
+$$
+x^{2} + z^{2} \leq 1
+$$
+$$
+\Pi_{1} = \iint_{s} xds = \int_{-1}^{1} dx \int_{-\sqrt{1-x^{2}}} ^{sqrt{1-x^{2}}} xdz = \int_{-1} ^{1} xdx \bigg( z\bigg|_{-\sqrt{1-x^{2}}} ^{sqrt{1-x^{2}}} \bigg) =
+$$
+\end{block}  
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Вычисление потока поля}
+\begin{frame}{Вычисление потока поля}
+\begin{block}{Расчет:}
+\centering
+$$
+= \int_{-1} ^{1} 2\sqrt{1-x^{2}}xdx = - \int_{-1}^{1} \sqrt{1-x^{2}} d(1-x^{2}) =
+$$
+$$
+= - \frac{(1-x^{2})^{\frac{3}{2}}}{\frac{3}{2}}\bigg|_{-1}^{1} = 0
+$$
+$$\Pi = \Pi_1 + \Pi_2$$ 
+где $\Pi_{2}$ - поток полусф $\implies \Pi_2 = - \frac{10\pi}{3} $
+\end{block}  
+\end{frame}
