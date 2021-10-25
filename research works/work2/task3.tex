@@ -1,0 +1,159 @@
+\section{Задние 3}
+\subsection{Формулировка задания}
+\begin{frame}{Потенциал векторного поля} %это заголовок слайда
+\begin{block}{Формулировка задания:}
+\centering
+Дано векторное поле $\vec{H}$: \\
+$(y\cos{xy};x\cos{xy});$
+\end{block}
+\begin{block}{План:}
+\begin{itemize}
+    \item Убедиться, что поле потенциально
+    \item Найти уравнения векторных линий
+    \item Изобразить векторные линии на рисунке
+    \item Найти потенциал поля при помощи криволинейного интеграла
+    \item Изобразить эквипотенциальные линии. Проиллюстрировать ортогональность линий уровня и векторных линий. 
+    \item Зафиксировать точки $A$ и $B$ на какой-либо векторной линии. Вычислить работу поля вдоль этой линии. 
+\end{itemize}
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Условие потенциальности}
+\begin{frame}{Условие потенциальности}
+\begin{block}{Проверим условие потенциальности:}
+\begin{align*}
+      Q = y\cos{xy} \hspace{3mm} P = x\cos{xy} \\
+      \frac{\delta P}{\delta y} = \cos{xy} - yx\sin{xy} \\
+      \frac{\delta Q}{\delta x} = \cos{xy} - yx\sin{xy} \\
+\end{align*}
+\centering
+так как $\frac{\delta P}{\delta y} =  \frac{\delta Q}{\delta x}$, то поле потенциальное. 
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Векторные линии}
+\begin{frame}{Векторные линии}
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+\centering
+Найдем уравнения векторных линий и изобразим их. \\
+$$
+     \frac{dx}{P} = \frac{dy}{Q} 
+$$
+$$
+   \frac{dx}{y\cos{xy}} = \frac{dy}{x\cos{xy}} \implies \frac{dx}{y} = \frac{dy}{x}
+$$
+$$
+xdx = ydy 
+$$
+$$
+x^{2} = y^{2} + C 
+$$
+$$
+x^{2} - y^{2} = C
+$$
+\end{column}
+\begin{column}{0.4\paperwidth}
+\centering
+Гиперболы: 
+\vspace{5mm}
+\includegraphics[width=0.4\paperwidth]{images/GrafikGiperboli.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Потенциал}
+\begin{frame}{Потенциал} 
+\begin{block}
+\centering
+Найдем потенциал поля при помощи криволинейного интеграла:
+$$
+U = \int_{x_0} ^x P(x, y_0)dx + \int_{y_0} ^y Q(x, y)dy
+$$
+\centering
+Пусть $x_0 = y_0 = 0$, тогда 
+$$
+U = \int_0^x 0dx + \int_0^y x\cos{xy}dy = \sin{xy} + C
+$$
+\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Линии уровня}
+\begin{frame}{Линии уровня}
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+\centering
+Изобразим эквипотенциальные линии, проиллюстрировав ортогональность линий уровня и векторных линий.  
+$$
+\sin{xy} = C
+$$
+$$
+xy = \arcsin{C}
+$$
+$$
+y = \frac{\arcsin{C}}{x}
+$$
+\end{column}
+\begin{column}{0.4\paperwidth}
+\centering
+Гиперболы:
+\vspace{5mm}
+\includegraphics[width=0.4\paperwidth]{images/GrafikOrtGiperb3Zadanie.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\subsection{Линии уровня}
+\begin{frame}{Линии уровня}
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+\centering
+Строим:
+\vspace{5mm}
+\includegraphics[width=0.4\paperwidth]{images/Grafik3ZadanieNov.png}
+\end{column}
+\begin{column}{0.4\paperwidth}
+\centering
+\vspace{20mm} \\
+Пусть C = 0 \\
+векторные линии: $x^2 = y^2$ \\
+Линии уровня: $xy = 0$
+\end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Работа поля}
+\begin{frame}{Работа поля}
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+\centering 
+ При C = 1 
+$$
+x^2 - y^2 = 1
+$$
+\centering
+Пусть $A(1;0)$\hspace{1mm} $B(2;\sqrt{3})$ \\
+$$
+A = U(B) - U(A) = 
+$$
+$$
+= \sin{2\sqrt{3}} - \sin{0} = \sin{2\sqrt{3}}
+$$
+В общем виде: \\
+$A(x_0; \sqrt{x_0^{2} - 1})$ \hspace{1mm} $B(x_1; \sqrt{x_1^{2} - 1})$
+$$
+A = \sin{x_1\sqrt{x_1^{2} - 1}} - \sin{x_0\sqrt{x_0^{2} - 1}}
+$$
+\end{column}
+\end{columns}
+\end{frame}
