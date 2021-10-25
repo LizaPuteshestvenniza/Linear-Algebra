@@ -1,0 +1,621 @@
+\section{Задание 1}
+\plan
+\begin{frame}{Условия задачи}
+ \[ A = \left(\begin{array}{lll}
+    0 & 1 & 0   \\
+    -4 & 4 & 0  \\ 
+    -2 & 1 & 2 
+    \end{array}\right),\quad
+    AX = \left(\begin{array}{l}
+    1 \\
+    -1 \\
+    1   
+    \end{array}\right).\]
+    \begin{block}{План}
+        \begin{itemize}
+            \item Применить линейное преобразование матрицы A=3x3 к единичному кубику 
+            \item Нарисовать и найти собственные вектора вектора А и их span. Сделать контрольный вектор, чтобы можно его было перемещать, согласно выражению Av=w
+            \item Найти методом Крамера вектор Х
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{Начало рассуждений}
+Имеем А - линейное преобразование в в $R^3$\\
+В базисе $\vec{e_{i}}$ (i = 1,2,3), А имеет матричное представление:
+\[
+A=\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+\end{array}\right)
+\]
+А действует на вектор из $R^3$: если подействовать А на вектор $\vec{x}$, то получим вектор $A\vec{x}$ (назовем его $\vec{y}$, т.е. $\vec{y} = A\vec{x}$) \\
+Вектор $\vec{x}$ можно разложить по базисным векторам: $\vec{x} = x_{1}\vec{e_{1}} + x_{2}\vec{e_{2}} +x_{3}\vec{e_{3}}$, где $x_{1}, x_{2}, x_{3}$ - координаты вектора $\vec{x}$ в базисе $\vec{e_{i}}$ (i = 1,2,3)
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{разложение по базису}
+Представляем $\vec{e_{1}}, \vec{e_{2}}, \vec{e_{3}}$ в виде:
+\[
+\left(\begin{array}{l}
+    1 \\
+    0 \\
+    0
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    1 \\
+    0
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right)
+\]
+Путем несложных вычислений получаем, $\vec{x}$ можно представить в виде:
+\[
+\left(\begin{array}{l}
+    x_{1} \\
+    x_{2} \\
+    x_{3}
+\end{array}\right)
+\]
+Аналогично, разложив $\vec{y}$ по базису, получаем:
+\[
+\left(\begin{array}{l}
+    y_{1} \\
+    y_{2} \\
+    y_{3}
+\end{array}\right)
+\]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+Мы имеем $\vec{y} = A\vec{x}$, т.е.
+\[
+\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+\end{array}\right)
+\left(\begin{array}{l}
+    x_{1} \\
+    x_{2} \\
+    x_{3}
+\end{array}\right) =
+\left(\begin{array}{l}
+    y_{1} \\
+    y_{2} \\
+    y_{3}
+\end{array}\right) \Rightarrow
+    \left\{\begin{array}{l}
+    y_{1} = x_{1}\\
+    y_{2} = -4x_{1} + 4x_{2}\\
+    y_{3} = -2x_{1} +x_{2} +2x_{3}
+    \end{array}\right.
+\]
+Получает, что любой вектор $\vec{x}$ из $R^3$ с координатами $x_{1}, x_{2}, x_{3}$ в базисе $\vec{e_{i}}$ (i = 1,2,3) А превратит в вектор $\vec{y}$ из $R^3$ с координатами $y_{1}, y_{2}, y_{3}$ в базисе $\vec{e_{i}}$ (i = 1,2,3), где $y_{1} = x_{1}, y_{2} = -4x_{1} + 4= x_{2}, y_{3} = -2= x_{1} += x_{2} +2= x_{3}$ \\
+Обычно, смотрят как А действует на базис $\vec{e_{i}}$ (i = 1,2,3), чтоб легко понять, во что А превратит $\vec{x}$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Действие $A$ на $\vec{e_{1}}$}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+$A$ действует на $\vec{e_{1}}$ подобным образом: $A\vec{e_{1}}$ \\
+А именно:
+\[
+\left(\begin{array}{lll}
+    0 & 1 & 0  \\
+    -4 & 4 & 0  \\ 
+    -2 & 1 & 2 
+\end{array}\right)
+\left(\begin{array}{l}
+    1 \\
+    0 \\ 
+    0 
+\end{array}\right) =
+\left(\begin{array}{l}
+    0 \\
+    -4 \\
+    -2
+\end{array}\right)
+\]
+То есть $A$ берет и преобразует
+\[
+\left(\begin{array}{l}
+    1 \\
+    0 \\ 
+    0 
+\end{array}\right) \Rightarrow
+\left(\begin{array}{l}
+    0 \\
+    -4 \\ 
+    -2 
+\end{array}\right)
+\]
+Получается, что $A$ повернуло и растянуло по длине $\vec{e_{1}}$
+\end{column}
+\begin{column}{0.3\paperwidth}
+\includegraphics[width=1.3\columnwidth]{fig/task-1/first_transform.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\begin{frame}{Действие $A$ на $\vec{e_{2}}$}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+$A$ действует на $\vec{e_{2}}$ подобным образом: $A\vec{e_{2}}$ \\
+А именно:
+\[
+\left(\begin{array}{lll}
+    0 & 1 & 0  \\
+    -4 & 4 & 0  \\ 
+    -2 & 1 & 2 
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    1 \\ 
+    0 
+\end{array}\right) =
+\left(\begin{array}{l}
+    1 \\
+    4 \\
+    1
+\end{array}\right)
+\]
+То есть $A$ берет и преобразует
+\[
+\left(\begin{array}{l}
+    0 \\
+    1 \\ 
+    0 
+\end{array}\right) \Rightarrow
+\left(\begin{array}{l}
+    1 \\
+    4 \\
+    1
+\end{array}\right)
+\]
+Получается, что $A$ повернуло и растянуло по длине $\vec{e_{1}}$
+\end{column}
+\begin{column}{0.2\paperwidth}
+\includegraphics[width=1.3\columnwidth]{fig/task-1/second_transform.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Действие $A$ на $\vec{e_{3}}$}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+$A$ действует на $\vec{e_{3}}$ подобным образом: $A\vec{e_{3}}$ \\
+А именно:
+\[
+\left(\begin{array}{lll}
+    0 & 1 & 0  \\
+    -4 & 4 & 0  \\ 
+    -2 & 1 & 2 
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    0 \\ 
+    1
+\end{array}\right) =
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    2
+\end{array}\right)
+\]
+То есть $A$ берет и преобразует
+\[
+\left(\begin{array}{l}
+    0 \\
+    0 \\ 
+    1 
+\end{array}\right) \Rightarrow
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    2
+\end{array}\right)
+\]
+Получается, что $A$ растянуло $\vec{e_{3}}$ в 2 раза. 
+\end{column}
+\begin{column}{0.2\paperwidth}
+\includegraphics[width=1.3\columnwidth]{fig/task-1/third_transform.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{}
+Когда мы растягиваем вектор $\vec{v}$ по базису, мы говорим, что в векторе $\vec{v}$ мы продвинулись вдоль $\vec{v_{1}}, \vec{v_{2}},\vec{v_{3}}$ на:
+\[
+\left(\begin{array}{l}
+    1 \\
+    0 \\
+    0
+\end{array}\right),
+\left(\begin{array}{l}
+    0 \\
+    1 \\
+    0
+\end{array}\right),
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right)
+\]
+и получили вектор $\vec{v}$ \\
+Посчитав $A\vec{v}$, получим: $A\vec{v} = A(v_{1}\vec{e_{1}} + v_{2}\vec{e_{2}} +v_{3}\vec{e_{3}}) = v_{1}A\vec{e_{1}} + v_{2}A\vec{e_{2}} +v_{3}A\vec{e_{3}}$ \\
+Назовем вектор $A\vec{v}$ буквой $\vec{u}$ \\
+Тогда если мы продвинимся на $v_{1}$ вдоль $A\vec{e_{1}}$, на $v_{2}$ вдоль $A\vec{e_{2}}$, на $v_{3}$ вдоль $A\vec{e_{3}}$, получаем $\vec{u}$\\
+Получается, что один раз вычислив $A\vec{e_{1}}, A\vec{e_{2}}, A\vec{e_{3}}$, то всегдо сможем быстро найти $A\vec{v}$
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{Единичный кубик}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+Рассмотрим все векторы, которые лежат в единичном кубике с вершинами: 
+\begin{itemize}
+    \item (0,0,0);
+    \item (0,0,1);
+    \item (0,1,0);
+    \item (0,1,1);
+    \item (1,0,0);
+    \item (1,0,1);
+    \item (1,1,0);
+    \item (1,1,1)
+\end{itemize}
+Вектор $\vec{v}$ в этом кубике записывается так: $\vec{v} = a\vec{e_{1}}+b\vec{e_{2}}+c\vec{e_{3}}$, где $a,b,c \in [0, 1]$
+\end{column}
+\begin{column}{0.4\paperwidth}
+\includegraphics[width=1\columnwidth]{fig/task-1/Единичный_кубик.png}
+\end{column}
+\end{columns}   
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{Пример}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+\begin{itemize}
+    \item $\vec{v} = {1,0,0}$, $a=1,b=0,c=0$
+    \item $\vec{v} = {\frac{1}{2},\frac{1}{2},\frac{1}{2}}$, $a=\frac{1}{2},b=\frac{1}{2},c=\frac{1}{2}$
+    \item $\vec{v} = {1,0,1}$, $a=1,b=0,c=1$
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.7\columnwidth]{fig/task-1/Пример3.png}  
+\small Номер 3
+\end{center}
+\end{column}
+\begin{column}{0.3\paperwidth}
+\includegraphics[width=1\columnwidth]{fig/task-1/Пример1.png}
+\small Номер 1
+\includegraphics[width=1\columnwidth]{fig/task-1/Пример2.png}
+\small Номер 2
+\end{column}
+\end{columns}   
+\end{frame}
+
+%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Получение параллелограмма}
+Меняя независимо a, b, c в пределах от 0 до 1 будем получать вектор с концом внутри кубика (или на границе кубика) \\
+А изменит каждый из векторов внутри и на кубике таким образом: $A\vec{v}$ \\
+Тогда куб превратиться в: $A\vec{v} = A(a\vec{e_{1}} + b\vec{e_{2}} +c\vec{e_{3}}) = aA\vec{e_{1}} + bA\vec{e_{2}} +cA\vec{e_{3}}$ \\
+Получается, любой вектор $\vec{v}$ из кубика, где мы продвинулись на a, b , c вдоль:
+\[
+\left(\begin{array}{l}
+    1 \\
+    0 \\
+    0
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    1 \\
+    0
+\end{array}\right)
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right)
+\]
+Станет вектором из новой области, где мы продвинулись на a,b,c на $A\vec{e_{1}}, A\vec{e_{2}},A\vec{e_{3}},$
+\begin{center}
+\includegraphics[width=0.3\columnwidth]{fig/task-1/ПервыйПараллелограмм.png} 
+\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%
+
+\begin{frame}
+Получаем параллелограмм с вершинами: (0,0,2), (1,4,3), (1,4,1), (1,0,-1), (1,0,1), (0,-4,0), (0,-4,-2), (0,0,0)\\
+Каждый вектор из исходного кубика после применения А остается внутри этого параллелограмма (каждый вектор как-то повернется и растянется)\\
+Можно сказать, что наш кубик повернется и растянется. \\
+С помощью формулы:
+\[
+A \cdot \vec{v}:
+\vec{v_{1}}\left(\begin{array}{l}
+    0 \\
+    -4 \\
+    -2
+\end{array}\right) +
+\vec{v_{2}}\left(\begin{array}{l}
+    1 \\
+    4 \\
+    1
+\end{array}\right) +
+\vec{v_{3}}\left(\begin{array}{l}
+    0 \\
+    0 \\
+    2
+\end{array}\right) +
+\]
+можно сказать какие вершины куда переместились. 
+\end{frame}
+
+%%%%%%%%%%%%%%%%
+
+\begin{frame}{Вершины параллелограмма}
+\begin{columns}
+\begin{column}{0.4\paperwidth}
+Перенос вершин:
+\begin{itemize}
+    \item (0,0,0) $\Rightarrow$ (0,0,0);
+    \item (0,0,1) $\Rightarrow$ (0,0,2)
+    \item (0,1,0) $\Rightarrow$ (1,4,1);
+    \item (0,1,1) $\Rightarrow$ (1,4,3);
+    \item (1,0,0) $\Rightarrow$ (0,-4,-2);
+    \item (1,0,1) $\Rightarrow$ (0,-4,0);
+    \item (1,1,0) $\Rightarrow$ (1,0,-1);
+    \item (1,1,1) $\Rightarrow$ (1,0,1);
+  \end{itemize}
+\end{column}
+\begin{column}{0.5\paperwidth}
+\includegraphics[width=1\columnwidth]{fig/task-1/Параллелограмм.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\begin{frame}{Понятие собственного вектора и числа}
+Собственный вектор матрицы $A$ - это вектор, который после применения этой матрицы не поворачивается, а только растягивается (или сжимается) на число $\lambda$ (собственное число) \\
+
+Берем вектор $\vec{v}$ и применяем к нему $A$: $A\vec{v}$, в результате получааем растянутый (или сжатый) на $\lambda$ исходный вектор (То есть $\lambda\vec{v}$). Таким образом:  $A\vec{v} = \lambda\vec{v}$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Единичная матрица}
+Единичная матрица не меняет вектор: $E\vec{v} = \vec{v}$ \\
+$$ A\vec{v} = \lambda\vec{v} \Rightarrow  A\vec{v} = \lambda E\vec{v} \Rightarrow A\vec{v} - \lambda E\vec{v} = \vec{0} \Rightarrow (A - \lambda E)\vec{v} = \vec{0} $$ \\
+\[
+A=\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+    \end{array}\right),
+E=\left(\begin{array}{lll}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+    \end{array}\right) 
+\]
+\[
+A - \lambda E =\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+    \end{array}\right) -
+\lambda \left(\begin{array}{lll}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+    \end{array}\right) =
+\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+    \end{array}\right) -
+\left(\begin{array}{lll}
+    \lambda & 0 & 0 \\
+    0 & \lambda & 0 \\
+    0 & 0 & \lambda
+    \end{array}\right) =
+\]
+\[
+\left(\begin{array}{lll}
+    -\lambda & 1 & 0 \\
+    -4 & 4 - \lambda & 0 \\
+    -2 & 1 & 2 - \lambda
+    \end{array}\right)   
+\]
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\begin{frame}{Нахождение собственного числа}
+Посчитаем определитеь для $A-\lambda E$:
+\[
+\det(A-\lambda E) = \left|\begin{array}{ccc}
+        -\lambda & 1 & 0 \\
+        -4 & 4-\lambda & 0 \\
+        -2 & 1 & 2-\lambda
+        \end{array}\right|=(-\lambda(\lambda - 4)-4)(\lambda -2)
+\]
+Решим уравнение: $\det(A-\lambda E)=0$ \\
+$(-\lambda(\lambda - 4)-4)(\lambda -2) =0 $\\
+$(\lambda-2)^{3}=0$ \\
+Получаем: $\lambda=2$ - собственное число (вырождено, трекратно)
+\end{frame}
+
+\begin{frame}{Получение $\vec{v_{1}}, \vec{v_{2}}, \vec{v_{3}}$}
+Собственному числу $\lambda$ соответствует собственный вектор $\vec{v}: A\vec{v} = 2\vec{v}$  \\
+Найдем $\vec{v}:$
+\[
+\vec{v}=\left(\begin{array}{lll}
+    0 & 1 & 0 \\
+    -4 & 4 & 0 \\
+    -2 & 1 & 2
+\end{array}\right)
+\left(\begin{array}{l}
+    \vec{v_{1}} \\
+    \vec{v_{2}} \\
+    \vec{v_{3}} 
+\end{array}\right) =
+2 \cdot \left(\begin{array}{l}
+    \vec{v_{1}} \\
+    \vec{v_{2}} \\
+    \vec{v_{3}} 
+\end{array}\right) 
+\]
+Получаем:
+$$
+    \left\{\begin{array}{l}
+    \vec{v_{2}} =  \vec{v_{1}} \\
+    -2\vec{v_{1}} +  \vec{v_{2}} = 0 \\
+    -2\vec{v_{1}} +  \vec{v_{2}} = 0
+    \end{array}\right.
+$$
+Отсюда видно, что из вектора $\vec{v}$ может быть любое значение $\vec{v_{3}}$, а $\vec{v_{1}}$ и $\vec{v_{2}}$ связаны $2\vec{v_{1}} = \vec{v_{2}}$
+\end{frame}
+
+%%%%%%%%%%%%%%%
+
+\begin{frame}{Вычисление первого собственного вектора $\vec{v}$}
+Предположим, что $\vec{v_{3}} = 1$, а $\vec{v_{1}} = 0$, тогда $\vec{v_{2}} = 0$, и получаем:
+\[
+\vec{v}=\left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right)
+\]
+Так как уже наблюдалось, что:
+\[
+A \cdot \left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right) = 
+\left(\begin{array}{l}
+    0 \\
+    0 \\
+    2
+\end{array}\right) = 
+2 \cdot \left(\begin{array}{l}
+    0 \\
+    0 \\
+    1
+\end{array}\right)
+\]
+Значит $\vec{v}$ - собственный вектор $A$ с собственным числом 2. 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Вычисление второго собственного вектора $\vec{v}$}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+Путем несложных вычислений, получаем второй собственный вектор $A$ с собственным числом 2
+\[
+\vec{v}=\left(\begin{array}{l}
+    1 \\
+    2 \\
+    0
+\end{array}\right)
+\]
+Третий собственный вектор линейно независимый от этих двух, найти его не удастся. 
+
+Span этих двух векторов - плоскость, образованная этими двумя векторами, т.е. все векторы, которые описываются $\vec{v} = a \cdot \vec{v_{1}} + b \cdot \vec{v_{2}}  a,b \in R$
+\end{column}
+\begin{column}{0.4\paperwidth}
+\includegraphics[width=1\columnwidth]{fig/task-1/Полученная_Плоскость.png}
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\begin{columns}
+\begin{column}{0.5\paperwidth}
+\begin{center}
+\href{https://www.geogebra.org/calculator/hwswsnrm}{Переход вектора после преобразования матрицы}
+\end{center}
+\end{column}
+\begin{column}{0.5\paperwidth}
+\includegraphics[width=0.9\columnwidth]{fig/task-1/Вектора.png} 
+\end{column}
+\end{columns}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} {Метод Крамера}
+\begin{multline*}
+x=\frac{\det\left(\begin{array}{lll} 
+1 & 1 & 0 \\
+-1 & 4 & 0\\
+1 & 1 & 2
+\end{array}\right)}{\det\left(\begin{array}{lll} 
+0 & 1 & 0 \\
+-4 & 4 & 0\\
+-2 & 1 & 2
+\end{array}\right)}
+=\frac{(-1)^{1+1}\cdot(4\cdot2 -1\cdot 0)-(1\cdot 2 - 1\cdot 0)+(1\cdot 0-4\cdot 0)}{0\cdot(4\cdot 2-1\cdot 0)-(-4)\cdot(1\cdot2-1\cdot0) -2\cdot(1\cdot 0 -4 \cdot 0)}=\\=\dfrac{10}{8}=1.25
+\end{multline*}
+\end{frame}
+\begin{frame} {Метод Крамера}
+
+\begin{multline*}
+y=\frac{\det\left(\begin{array}{lll} 
+0 & 1 & 0 \\
+4 & -1 & 0\\
+2 & 1 & 2
+\end{array}\right)}{\det\left(\begin{array}{lll} 
+0 & 1 & 0 \\
+-4 & 4 & 0\\
+-2 & 1 & 2
+\end{array}\right)}
+=\frac{0\cdot(-1\cdot 2 - 1 \cdot 0)-4\cdot(1\cdot2 -1\cdot0)-2\cdot(1\cdot 0+0)}{0\cdot(4\cdot 2-1\cdot 0)-(-4)\cdot(1\cdot2-1\cdot0) -2\cdot(1\cdot 0 -4 \cdot 0)}=\\=\dfrac{8}{8}=1\\
+\end{multline*}
+\end{frame}
+
+\begin{frame} {Метод Крамера}
+\begin{multline*}
+z=\frac{\det\left(\begin{array}{lll} 
+0 & 1 & 1 \\
+-4 & 4 & -1\\
+-2 & 1 & 1
+\end{array}\right)}{\det\left(\begin{array}{lll} 
+0 & 1 & 0 \\
+-4 & 4 & 0\\
+-2 & 1 & 2
+\end{array}\right)}
+=\frac{0\cdot(4\cdot 1 + 1 \cdot 1)-4\cdot(1\cdot1 -1\cdot1)-2\cdot(1\cdot(-1)-4 \cdot 1)}{0\cdot(4\cdot 2-1\cdot 0)-(-4)\cdot(1\cdot2-1\cdot0) -2\cdot(1\cdot 0 -4 \cdot 0)}=\\=\dfrac{10}{8}=1.25\\
+\end{multline*}
+\end{frame}
+
+
