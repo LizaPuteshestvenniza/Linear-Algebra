@@ -1,0 +1,180 @@
+\section{Задние 2}
+\subsection{Формулировка задания}
+\begin{frame}{Интегралы Пуассона и Френеля}  %это заголовок слайда
+\begin{block}{Формулировка задания}
+Вычислите интеграл:
+$$
+\int_{0}^{\infty} \frac{\cos (4 t-\pi / 2)}{\sqrt{t}} d t
+$$
+\end{block}
+\begin{block}{План:}
+\begin{itemize}
+    \item Вычислим Гауссов интеграл и его квадрат
+    \item Вычислим интеграл $\int_{0}^{\infty} \frac{\sin t}{\sqrt{t}} d t=J$
+    \item С помощью предыдущего интеграла вычислим интеграл $K$ и интегралы $\int_{0}^{\infty} \sin x^{2} d x$ и $\int_{0}^{\infty} \sin \left(\pi x^{2} / 2\right) d x$
+    \item Проиллюстрируем графики функции ошибок, интегралов Френеля и их подынтегральных функций
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Выполнение задания}
+\begin{frame}{Вычислим Гауссов интеграл}
+\begin{align*}
+&\text { Заметим, что } I=\int_{0}^{\infty} e^{-x^{2}} d x=\int_{0}^{\infty} e^{-y^{2}} d y .\\
+&\text { Тогда } I^{2}=\int_{0}^{\infty} e^{-x^{2}} d x \int_{0}^{\infty} e^{-y^{2}} d y-\text { двукратный интеграл. }\\
+&I^{2}=\int_{0}^{\infty} e^{-x^{2}} d x \int_{0}^{\infty} e^{-y^{2}} d y=\int_{0}^{\infty} \int_{0}^{\infty} e^{-\left(x^{2}+y^{2}\right)} d x d y
+\end{align*}
+\end{frame}
+
+\begin{frame}{Вычислим Гауссов интеграл}
+Сделаем переход в полярную систему координат:
+$$
+\begin{array}{l}
+d S=d x d y=r d \varphi \cdot d r \\
+x=r \cos \varphi \\
+y=r \sin \varphi
+\end{array} \mid \rightarrow x^{2} \cos ^{2} \varphi+y^{2} \sin ^{2} \varphi=r^{2} \rightarrow x^{2}+y^{2}=r^{2}
+$$
+\begin{align*}
+I^{2}&=\int_{0}^{\infty} \int_{0}^{\infty} e^{-\left(x^{2}+y^{2}\right)} d x d y=\int_{0}^{\frac{\pi}{2}} \int_{0}^{\infty} e^{-r^{2}} r d \varphi d r=\int_{0}^{\frac{\pi}{2}} d \varphi \int_{0}^{\infty} e^{-r^{2}} r d r=\\
+&=\int_{0}^{\frac{\pi}{2}} d \varphi \int_{0}^{\infty} e^{-r^{2}} \frac{1}{2} d\left(r^{2}\right)=\frac{1}{2} \int_{0}^{\frac{\pi}{2}} d \varphi\left(-\left.e^{-r^{2}}\right|_{0} ^{\infty}\right)=\\
+&=\frac{1}{2} \int_{0}^{\frac{\pi}{2}} d \varphi\left(-e^{-\infty}-\left(-e^{0}\right)\right)=\frac{1}{2} \int_{0}^{\frac{\pi}{2}} d \varphi\left(-\left.e^{-r^{2}}\right|_{0} ^{\infty}\right)=\\
+&=\frac{1}{2} \int_{0}^{\frac{\pi}{2}} d \varphi\left(-e^{-\infty}-\left(-e^{0}\right)\right)=\frac{1}{2} \int_{0}^{\frac{\pi}{2}} d \varphi=\frac{1}{2}\left(\left.\varphi\right|_{0} ^{\frac{\pi}{2}}\right)=\frac{\pi}{4}
+\end{align*}
+\end{frame}
+
+\begin{frame}{Доказательство полезного тождества}
+С учетом небольшой замены, легко увидеть, что:
+$$
+\int_{0}^{\infty} e^{-n x^{2}} d x=\left[\begin{array}{l}
+p=\sqrt{n} x \\
+p^{2}=n x^{2} \\
+\frac{d p}{\sqrt{n}}=d x
+\end{array}\right]=\frac{1}{\sqrt{n}} \int_{0}^{\infty} e^{-p^{2}} d p=\frac{1}{\sqrt{n}} I
+$$
+На предыдущем слайде мы получили, что $I = \frac{\sqrt{\pi}}{2}$ Тогда справедливо и равенство:
+$$
+\frac{1}{\sqrt{t}}=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} e^{-u^{2} t} d u
+$$
+Данное тождество будет полезно нам вдальнейшим.
+\end{frame}
+\begin{frame}{Вычисление интеграла J}
+$$
+J=\int_{0}^{\infty} \frac{\sin t}{\sqrt{t}} d t
+$$
+$$
+\frac{1}{\sqrt{t}}=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} e^{-u^{2} t} d u \Rightarrow J=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} d t \int_{0}^{\infty} d u e^{-t u^{2}}\sin{t}
+$$
+Теперь возьмем интеграл по $t$, обозначив подынтегральную функцию как $Q\left(u^{2}\right) .$ Тогда:
+$$
+Q(a)=\int_{0}^{\infty} e^{-a t} \sin t d t=\frac{1}{a^{2}+1}
+$$
+Тем самым, получаем следующий интеграл:
+$$J=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} \frac{1}{1+u^{4}} d u$$
+Сделаем замену $u=\frac{1}{t}$
+\end{frame}
+\begin{frame}{Вычисление интеграла J}
+$$
+J=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty}\left(-\frac{d t}{t^{2}}\right) \frac{1}{1+1 / t^{4}}=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} \frac{t^2}{1+t^{4}} d t=
+$$
+$$
+J=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} \frac{t^2}{1+t^{4}} d t
+$$
+Беря полусумму двух представлений для интеграла I, получим:
+$$
+J=\frac{1}{\sqrt{\pi}} \int_{0}^{\infty} \frac{u^2+1}{1+u^{4}} d t
+$$
+Теперь можно перейти к стандарнтой переменной для интегрирования \\
+симметрических многочленов $t=x-\frac{1}{x} ;$ при этом $d t=\left(1+\frac{1}{x^{2}}\right) d x$, получим:
+$$
+I=\frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} \frac{d t}{t^{2}+2}=\left.\frac{1}{2 \sqrt{2 \pi}} \arctan \frac{t}{\sqrt{2}}\right|_{-\infty} ^{\infty}=\sqrt{\frac{\pi}{2}}
+$$
+\end{frame}
+
+\begin{frame}{Вычисление интеграла K}
+$$K=\int_{0}^{\infty} \frac{\cos (4 t-\pi / 2)}{\sqrt{t}} d t=\int_{0}^{\infty} \frac{\sin(4t)}{\sqrt{t}}dt$$
+Сделаем замену $k=4t$, $dk=4dt$:
+$$K=\int_{0}^{\infty} \frac{\sin(k)}{\sqrt{\frac{k}{4}}}\frac{dk}{4}=\int_{0}^{\infty} \frac{2\sin(k)}{\sqrt{k}}\frac{dk}{4}=\int_{0}^{\infty} \frac{\sin(k)}{2\sqrt{k}}dk=\frac{\sqrt{\pi}}{2^{1.5}}$$
+\end{frame}
+
+\begin{frame}{Пример вычисления другого интеграла}
+$$\int_{0}^{\infty} \sin x^{2} d x$$
+Перейдем к переменной $t=x^2$:
+$$\int_{0}^{\infty} \frac{\sin t}{2\sqrt{t}}dt$$
+$$
+\frac{1}{\sqrt{t}}=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} e^{-x^{2} t} d x \Rightarrow I=\frac{1}{\sqrt{\pi}} \int_{0}^{\infty} d t \int_{0}^{\infty} d x e^{-t x^{2}} \sin t
+$$
+Теперь возьмем интеграл по $t$, обозначив подынтегральную функцию как $J\left(x^{2}\right)$. Тогда:
+$$
+J(a)=\int_{0}^{\infty} e^{-\alpha t} \sin t d t=\frac{1}{a^{2}+1}
+$$
+\end{frame}
+
+\begin{frame}{Пример вычисления другого интеграла}
+Тем самым, получаем следующий интеграл:
+$$
+I=\frac{1}{\sqrt{\pi}} \int_{0}^{\infty} \frac{1}{1+x^{4}} d x
+$$
+Сделаем замену $x=\frac{1}{t}$
+$$
+I=\frac{1}{\sqrt{\pi}} \int_{0}^{\infty}\left(-\frac{d t}{t^{2}}\right) \frac{1}{1+1 / t^{4}}=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} \frac{t^2}{1+t^{4}} d t=
+$$
+$$
+I=\frac{2}{\sqrt{\pi}} \int_{0}^{\infty} \frac{t^2}{1+t^{4}} d t
+$$
+Беря полусумму двух представлений для интеграла I, получим:
+$$
+I=\frac{1}{2\sqrt{\pi}} \int_{0}^{\infty} \frac{x^2+1}{1+x^{4}} d t
+$$
+\end{frame}
+
+\begin{frame}{Пример вычисления другого интеграла}
+Теперь можно перейти к стандарнтой переменной для интегрирования \\
+симметрических многочленов $t=x-\frac{1}{x} ;$ при этом $d t=\left(1+\frac{1}{x^{2}}\right) d x$, получим:
+$$
+I=\frac{1}{2\sqrt{\pi}} \int_{-\infty}^{\infty} \frac{d t}{t^{2}+2}=\left.\frac{1}{4 \sqrt{2 \pi}} \arctan \frac{t}{\sqrt{2}}\right|_{-\infty} ^{\infty}=\frac{\sqrt{\pi}}{2^{1.5}}
+$$
+\end{frame}
+
+\begin{frame}{Пример вычисления другого интеграла}
+$$
+\int_{0}^{\infty} \sin \left(\pi x^{2} / 2\right) d x
+$$
+Пусть: $k^2=\pi x^{2} / 2$, тогда $dk=\frac{\sqrt{2}\pi}{2\sqrt{\pi}}dx$, $dx=\frac{2\sqrt{\pi}dk}{\sqrt{2}\pi}$
+$$
+\int_{0}^{\infty} \sin \left(k^2\right) \frac{2\sqrt{\pi}dk}{\sqrt{2}\pi}=\frac{2\sqrt{\pi}dk}{\sqrt{2}\pi}\int_{0}^{\infty} \sin \left(k^2\right)dk=\frac{2\sqrt{\pi}}{\sqrt{2}\pi}*\frac{\sqrt{\pi}}{2^{1.5}}=\frac{1}{2}
+$$
+\end{frame}
+
+\begin{frame}{График функции ошибок}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.67]{images/Error_Function.svg.png}
+    \end{figure}
+\end{frame}
+\begin{frame}{Графики интегралов Френеля}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.22]{images/Fresnel_Integrals.svg.png}
+    \end{figure}
+\end{frame}
+\begin{frame}{Графики подынтыгральных выражений Френеля}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.32]{images/sin(x^2).png}
+            \caption{$f(x)=sin(x^2)$}
+            \label{fig:sin(x^2)}
+        \end{figure}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[scale=0.32]{images/cos(x^2).png}
+            \caption{$f(x)=cos(x^2)$}
+            \label{fig:cos(x^2)}
+        \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
