@@ -1,0 +1,59 @@
+\documentclass[aspectratio=169]{beamer}
+
+\include{preamble}
+
+
+% Поля title, author, subject, keywords используются при формировании pdf документа. Поэтому их нужно заполнять, даже если вы формируете титульный слайд руками.
+% Формат: \title[Короткое название]{Полное название}
+\title[Типовик №1]{Типовой расчет №1}
+\subtitle[Линейная алгебра]{Линейная алгебра}
+
+% \institute[ИТМО]{Национальный исследовательский университет информационных технологий, механики и оптики}
+
+\where{Санкт-Петербург}
+
+% Тематика и ключевые слова.
+% \subject{Beamer template}
+% \keywords{ITMO University, LaTex teamplate, beamer}
+
+% По умолчанию внизу каждого слайда пишется название презентации (\inserttitle). Этот текст можно заменить на другой, например:
+\setfootlinetext{\insertsection}
+
+% Кастомная команда, выводящая позицию в презентации
+\newcommand{\plan}
+{
+    \begin{frame}[plain]{Этапы работы}
+        % \small
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+\begin{document}
+
+% [plain] - модификатор для создания пустого слайда (без нижней полосы). Идеально подходит для создания первого (титульного) и последнего слайда с полигональным фоном, либо для переходных слайдов между главами или слайдов с оглавлением.
+% \itmopolygons - команда для создания полигонального фона. Используется для создания фона на первом (титульном) и последнем слайде.
+
+\begin{frame}[plain]
+    \titlepage
+\end{frame}
+
+\begin{frame}[plain]{Содержание}
+    % \small
+    \tableofcontents
+\end{frame}
+
+\include{task1}
+\include{task2}
+% \include{example}
+
+\begin{frame}[plain,noframenumbering]
+    \itmopolygons{
+        \vfill
+        \Huge{Спасибо за внимание!}
+        \vfill
+        \includegraphics[scale=.5]{itmo/slogan.pdf}
+    }
+\end{frame}
+
+\end{document}
